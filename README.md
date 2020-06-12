@@ -23,17 +23,19 @@ If you decide to use this script, please credit its writer, and everyone in the 
         -> if that doesn't work, type "cd Desktop/" and whatever the name of the folder after it
  7) in terminal, type "python3 send.py" and press enter
  8) answer the questions that come up next and you should be set :)
+ 
  MAKE SURE TO USE TERMINAL AND A GMAIL ACCOUNT
 
 ### METHOD 2 (if you are familiar with git hub):
- DO NOT PUSH WITHOUT MERGE REQUEST FIRST,
+ #### DO NOT PUSH WITHOUT MERGE REQUEST FIRST,
  MAKE SURE TO USE TERMINAL AND A GMAIL ACCOUNT
  1) click "clone or download" button and copy the clone link
  2) in terminal, use "git clone " + the link
  3) in terminal, navigate to the clone directory
  4) type "python3 send.py"
  5) answer the questions that come up next and you should be set :)
- DO NOT PUSH WITHOUT MERGE REQUEST FIRST,
+ 
+ #### DO NOT PUSH WITHOUT MERGE REQUEST FIRST,
  MAKE SURE TO USE TERMINAL AND A GMAIL ACCOUNT
 
 ### Credits:
