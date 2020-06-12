@@ -3,7 +3,8 @@
 Due to the recent push for defunding police departments, this script was created to allow you to easily send emails to city representatives, urging them to support the movement. This script will allow you to write your own message and send it to our list of representatives, or it will write a message for you with the statistics about your city's police budget included.  
 
 **This script only works for gmail accounts.** 
-If you decide to use this script, please credit its writer, as well as everyone in the credit's section. Thank you!
+
+If you decide to use this script, please credit its writer, and everyone in the credit's section. Thank you!
 
 ### METHOD 1 (RECOMMENDED):
  MAKE SURE TO USE TERMINAL AND A GMAIL ACCOUNT
