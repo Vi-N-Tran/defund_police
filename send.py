@@ -90,7 +90,7 @@ def prompt_recipients():
         state_options = {v: k for v, k in enumerate(recipients.get_states())}
         for idx, opt in state_options.items():
             print(idx, "->", opt)
-        print("Enter blank (nothing) when done. \n")
+        print("Don't input anything and press 'Enter' when done. \n")
 
         if len(cart) > 0:
             print(f'Cities chosen: {cart}')
@@ -121,7 +121,7 @@ def prompt_recipients():
                     print("Which city officials do you want to send emails to?")
                     for idx, opt in city_options.items():
                         print(idx, "->", opt)
-                    print("Enter blank (nothing) when done. \n")
+                    print("Don't input anything and press 'Enter' when done. \n")
 
                     # Ask user and print confirmation of cities
                     if subcart:
