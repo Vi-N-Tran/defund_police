@@ -32,7 +32,7 @@
 #     return message
 #
 # print(file())
-# file = open("/Users/vitran/PycharmProjects/defundpolice/text/example", "r")
+# file = open("/Users/vitran/PycharmProjects/ignore/test/example", "r")
 import messages, recipients, states, smtplib, ssl, sys, time
 from email.message import EmailMessage
 
@@ -186,12 +186,17 @@ from email.message import EmailMessage
 #             print("Unexpected error... trying again in 10 seconds.")
 #             time.sleep(10)
 
-with open("template.txt", 'r', encoding='utf-8-sig') as fd:
-    residency = "California"
-    msg = fd.read()
-    msg = msg.replace("My name is", "name")
-    msg = msg.replace("[RESIDENCY]", "California")
-    msg = msg.replace(" and I am from " + residency, "")
+# with open("template.txt", 'r', encoding='utf-8-sig') as fd:
+#     residency = "California"
+#     msg = fd.read()
+#     msg = msg.replace("My name is", "name")
+#     msg = msg.replace("[RESIDENCY]", "California")
+#     msg = msg.replace(" and I am from " + residency, "")
+#
+#
+# print(msg)
 
-
-print(msg)
+police_budget = "1,318,447,965"
+police_budget_int = int(police_budget.replace(",",""))
+print(police_budget)
+print(police_budget_int)

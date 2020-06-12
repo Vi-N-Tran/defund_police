@@ -98,6 +98,12 @@ def prompt_recipients():
 
         if len(str(state_idx)) == 0:
             more_state = False
+        elif int(state_idx) == 0:
+            cart.update(recipients.get_states())
+            cart.remove('Select All')
+            for state in cart:
+                recv.update(recipients.get_state(state))
+            more_state = False
         else:
             # 0 -> All States
             if int(state_idx) == 0:
@@ -178,8 +184,11 @@ def send():
                     dst_email = recipient[2]
                     police_budget = recipient[3]
                     total_budget = recipient[4]
-                    percent = round(int(police_budget)/int(total_budget), 3)
-                    acronym = recipient[5]
+
+                    police_budget_int = int(police_budget.replace(",", ""))
+                    total_budget_int = int(total_budget.replace(",", ""))
+                    percent = round(100*(police_budget_int/total_budget_int), 2)
+
 
                     msg = EmailMessage()
 
@@ -193,12 +202,11 @@ def send():
                     message = message.replace("[POLICE-BUDGET]", police_budget)
                     message = message.replace("[TOTAL-BUDGET]", total_budget)
                     message = message.replace("[PERCENT]", str(percent))
-                    message = message.replace("[POLICE-ACRONYM]", acronym)
                     message = message.replace("[CITY-NAME]", location)
-                    if residency.lower() != location:
-                        message = message.replace(" and I am from " + residency + ".", " and ")
+                    if residency.lower() != location.lower():
+                        message = message.replace(" and I am from " + residency + ".", " and")
                         message = message.replace("member of this community", "citizen")
-                    body = "Dear " + recv_name + " of " + location + ",\n" + message
+                    body = "Dear " + recv_name + " of " + location + ",\n\n" + message
 
                     msg.set_content(body)
                     print(msg.as_string())
@@ -208,6 +216,7 @@ def send():
             break
         except smtplib.SMTPException:
             print("Unexpected error... trying again in 10 seconds.")
+            print("Are you running this program in terminal?")
             time.sleep(10)
 
     print_barrier()
