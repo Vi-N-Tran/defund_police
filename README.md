@@ -6,6 +6,7 @@ Due to the recent push for defunding police departments, this script was created
 
 If you decide to use this script, please credit its writer, and everyone in the credit's section. Thank you!
 
+
 ### METHOD 1 (RECOMMENDED):
  MAKE SURE TO USE TERMINAL AND A GMAIL ACCOUNT
  1) CLICK "clone or download" button
@@ -33,6 +34,7 @@ If you decide to use this script, please credit its writer, and everyone in the 
  8) answer the questions that come up next and you should be set :) 
  
  MAKE SURE TO USE TERMINAL AND A GMAIL ACCOUNT
+ 
 
 ### METHOD 2 (if you are familiar with git hub):
  #### DO NOT PUSH WITHOUT MERGE REQUEST FIRST,
