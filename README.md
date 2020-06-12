@@ -1,6 +1,6 @@
 # DEFUND POLICE MAILBOT
 
-Due to the recent push for defunding police departments, this script was created to allow you to easily send emails to city representatives, urging them to support the movement. This script will allow you to write your own message and send it to our list of representatives, or it will write a message for you with the statistics about your city's police budget included.  
+Due to the recent push for defunding police departments, this script was created to allow you to easily send emails to city representatives, urging them to support the movement. This script will allow you to write your own message and send it to our list of representatives, or it will write a message for you with the statistics about your city's police budget included. You can send emails to all of the representatives, however, the emails that identify you as a resident will only be sent to your city's representative, other emails will address you as a concerned citizen.
 
 **This script only works for gmail accounts.** 
 
