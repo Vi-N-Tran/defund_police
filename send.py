@@ -28,7 +28,7 @@ def prompt_login():
     # Get email
     email = input("Type your email and press enter: ")
     while "@gmail" not in email:
-        print("Please enter a GMAIL username")
+        print("Please enter a GMAIL email")
         email = input("Type your email and press enter: ")
 
     # Get password
@@ -43,12 +43,18 @@ def prompt_login():
 def prompt_email(name, residency):
     print("\nWhat would you like the subject (title) of your email to be?")
     subject = input("Type here and press enter (if blank, a random one will be generated): ")
+    print(
+        "\033[1;33;48m\nIF YOU ACCIDENTALLY INPUTTED A WRONG SUBJECT, press control and 'c' to exit the program to try "
+        "again\nTo run"
+        " the program again, type 'python3 send.py' and press 'Enter'")
     if len(subject) == 0:
         subject = messages.gen_subject()
 
-    print("\nMailbot can write emails addressed personally to each lawmaker.")
+    print("\033[1;32;48m\nMailbot can write emails addressed personally to each lawmaker.")
+    print("\033[1;37;48m")
     print(
-        "However, if you would like to WRITE YOUR OWN message, please save it in a .txt file.\nThe easiest way to do this is to just write your message in example.txt.\n")
+        "If you would like to WRITE YOUR OWN message, please save it in a .txt file.\nThe easiest way to do "
+        "this is to just write your message in example.txt.\n")
     response = ""
     msg = ""
     while response.lower() != "y" and response.lower() != "n":
@@ -58,8 +64,12 @@ def prompt_email(name, residency):
                 msg = fd.read()
                 msg = msg.replace("[PERSON-NAME]", name)
                 msg = msg.replace("[RESIDENCY]", residency)
-        elif response == 'n':
-            for i in range(50):
+        elif response.lower() == 'n':
+            print("\033[1;33;48m\nIf you accidentally inputted 'n', press control and 'c' to exit the program to try "
+                  "again\nTo run"
+                  " the program again, type 'python3 send.py' and press 'Enter'")
+            while len(msg) <= 0:
+                print("\033[1;37;48m\nIf not,")
                 filename = input("What is the name of your txt file?: ")
                 try:
                     with open(filename, 'r', encoding='utf-8-sig') as fd:
@@ -80,7 +90,7 @@ def prompt_recipients():
     # Choose a state
     while more_state:
         more_city = True
-        print("Which state officials do you want to send emails to?")
+        print("\nWhich STATE officials do you want to send emails to?")
         state_options = {v: k for v, k in enumerate(recipients.get_states())}
         for idx, opt in state_options.items():
             print(idx, "->", opt)
@@ -88,7 +98,8 @@ def prompt_recipients():
 
         if len(cart) > 0:
             print(f'Cities chosen: {cart}')
-        state_idx = input("\nType the number corresponding to the state here: ")
+        state_idx = input("\nType the number corresponding to the STATE here "
+                          "(Don't input anything and press 'Enter' when done): ")
 
         if len(str(state_idx)) == 0:
             more_state = False
@@ -112,7 +123,7 @@ def prompt_recipients():
                     city_options = {v: k for v, k in enumerate(recipients.get_cities(state))}
 
                     # Print question for city
-                    print("Which city officials do you want to send emails to?")
+                    print("\nWhich CITY officials do you want to send emails to?")
                     for idx, opt in city_options.items():
                         print(idx, "->", opt)
                     print("Don't input anything and press 'Enter' when done. \n")
@@ -120,7 +131,8 @@ def prompt_recipients():
                     # Ask user and print confirmation of cities
                     if subcart:
                         print(f'Cities chosen: {subcart}')
-                    city_idx = input("\nType the number corresponding to the city here: ")
+                    city_idx = input("\nType the number corresponding to the CITY here (Don't input anything and "
+                                     "press 'Enter' when done): ")
 
                     # get out of loop or get the city
                     if len(str(city_idx)) == 0:
@@ -142,8 +154,8 @@ def prompt_recipients():
             else:
                 print("\033[1;31;48mWe don't have that STATE number. Please input the correct number")
                 print("\033[1;37;48m")
-    print("\nYou have chosen " + str(len(recv)) + " recipients")
-    print("Thank you for choosing you recipients")
+    print("\033[1;32;48m\nYou have chosen " + str(len(recv)) + " recipients")
+    print("\033[1;37;48m")
 
     return recv
 
