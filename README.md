@@ -6,25 +6,35 @@ Due to the recent push for defunding police departments, this script was created
 
 If you decide to use this script, please credit its writer, and everyone in the credit's section. Thank you!
 
+
 ### METHOD 1 (RECOMMENDED):
  MAKE SURE TO USE TERMINAL AND A GMAIL ACCOUNT
- 1) click "clone or download" button
- 2) click "Download ZIP"
- 3) Drag the downloaded file onto your desktop's screen
+ 1) CLICK "clone or download" button
+ 2) CLICK "Download ZIP"
+ 3) DRAG the downloaded file onto your desktop's screen
  4) MAC USERS: double click zip file
+ 
     WINDOWS USERS: right click on the file, click "Extract all"
- 5) open terminal
+ 5) OPEN terminal
+ 
     MAC USERS:
-        - hold COMMAND and space bar (or click on the magnifying glass on top right corner)
-        - type "Terminal"
-        - press enter
+        - HOLD "COMMAND" and space bar (or click on the magnifying glass on top right corner)
+	
+        - TYPE "Terminal"
+	
+        - PRESS enter
+	
     WINDOWS USERS:
- 6) in terminal, navigate to the folder you just unzipped by typing "cd Desktop/defund_police-master"
+    
+    	- in the search bar (bottom left), TYPE "Command Prompt" and CLICK "run as administrator"  
+	
+ 6) in terminal/command prompt, navigate to the folder you just unzipped by typing "cd Desktop/defund_police-master"
         -> if that doesn't work, type "cd Desktop/" and whatever the name of the folder after it
- 7) in terminal, type "python3 send.py" and press enter
- 8) answer the questions that come up next and you should be set :)
+ 7) in terminal/command prompt, type "python3 send.py" and press enter
+ 8) answer the questions that come up next and you should be set :) 
  
  MAKE SURE TO USE TERMINAL AND A GMAIL ACCOUNT
+ 
 
 ### METHOD 2 (if you are familiar with git hub):
  #### DO NOT PUSH WITHOUT MERGE REQUEST FIRST,
