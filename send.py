@@ -32,13 +32,7 @@ def prompt_login():
         email = input("Type your email and press enter: ")
 
     # Get password
-    password = ""
-    for i in range(1, 4):
-        try:
-            password = getpass("Type your password and press enter: ")
-            break
-        except:
-            print("Error with inputting password. Try again. This is your try " + str(i) + "/3")
+    password = getpass("Type your password and press enter: ")
     if len(password) <= 0:
         quit()
     else:
@@ -160,22 +154,30 @@ def send():
     port = 465  # standard port for SMTP over SSL
     smtp_server = "smtp.gmail.com"
 
+    correct_login = False
     send = 0
     name = prompt_name()
     residency = prompt_residency()
     recv = prompt_recipients()
     subject, message = prompt_email(name, residency)
-    src_email, password = prompt_login()
 
-    while True:
-        try:
-            # create a secure SSL context
-            context = ssl.create_default_context()
+    # while True:
+    try:
+        # create a secure SSL context
+        context = ssl.create_default_context()
 
-            # open smtplib, a client object to send emails. -> take in server and port to send from
-            with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
-                server.login(src_email, password)
+        # open smtplib, a client object to send emails. -> take in server and port to send from
+        with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+            while correct_login is False:
+                try:
+                    src_email, password = prompt_login()
+                    server.login(src_email, password)
+                    correct_login = True
+                except:
+                    print("\033[1;31;48mIncorrect email or password. Please try again")
+                    print("\033[1;37;48m")
 
+            if correct_login:
                 # Take info from recipients file
                 while recv:
                     recipient = recv.pop()
@@ -213,11 +215,11 @@ def send():
 
                     server.send_message(msg)
                     send += 1
-            break
-        except smtplib.SMTPException:
-            print("Unexpected error... trying again in 10 seconds.")
-            print("Are you running this program in terminal?")
-            time.sleep(10)
+                # break
+    except smtplib.SMTPException:
+        print("Unexpected error... trying again in 10 seconds.")
+        print("Are you running this program in terminal?")
+        time.sleep(10)
 
     print_barrier()
     print(f'\nSuccessfully sent {send} emails!\n')
